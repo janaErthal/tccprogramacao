@@ -5,27 +5,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .retangulo  {
+            width: 300px; /* Largura do retângulo */
+            height: 200px; /* Altura do retângulo */
+            border: 5px solid #808080; /* Borda cinza */
+            border-radius: 10px; /* Cantos arredondados, opcional */
+            margin: 20px; /* Margem ao redor do retângulo */
+            display: flex;
+            justify-content: center; /* Alinha a imagem horizontalmente */
+            align-items: center; /* Alinha a imagem verticalmente */
+            background-color: #f0f0f0; /* Cor de fundo opcional */}
+            .retangulo img {
+            max-width: 100%; /* Faz a imagem se ajustar ao tamanho do retângulo */
+            max-height: 100%; /* Faz a imagem se ajustar ao tamanho do retângulo */
+            border-radius: 8px; /* Bordas arredondadas para a imagem, opcional */
+            list-style-type: circle;
+        display: flex;
+         justify-content: center; /* Centraliza os itens horizontalmente */
+}
+        
+        .body{
+            background-color: #0000FF
+        }
+
         body{
             background-color: #a8a397;
         }
+        
+        .rodape {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
         .button{
-            text-align: left;  background-color:#a8a397;
+            text-align: left; background-color:#0000FF;
             width: 3% ;
             padding: 10px;
             border-radius: 100px; 
             margin: 1px
+            
         }
+        .header{
+            width: 100%;
+           
+
+        }
+        .perfil{
+            background-color: #333; /* Cor de fundo da parte superior */
+    color: white; /* Cor do texto da parte superior */
+    padding: 1px 1px; /* Espaçamento interno da parte superior */
+
+        }
+        body, ul {
+    margin: 0;
+    padding: 0;
+        }
+        .logo{
+    color: white; /* Cor do texto do logo */
+    text-decoration: none; /* Remove o sublinhado do texto */
+    font-size: 24px; /* Tamanho da fonte do logo */
+    font-weight: bold; /* Deixa o texto em negrito */
+    width: 3%;
+    
+}   
+/* Reset básico de margens e preenchimentos */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estiliza o cabeçalho */
+header {
+    width: 100%;
+}
+
+/* Barra superior */
+
+/* Estiliza o logo */
+.logo a {
+    color: white; /* Cor do texto do logo */
+    text-decoration: none; /* Remove o sublinhado do texto */
+    font-size: 24px; /* Tamanho da fonte do logo */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Barra inferior */
+.bottom-bar {
+    background-color: #444; /* Cor de fundo da parte inferior */
+    padding: 10px 20px; /* Espaçamento interno da parte inferior */
+}
+
+/* Remove marcadores da lista e define estilo dos links */
+nav ul {
+    list-style-type: circle;
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+nav a {
+    color: white; /* Cor do texto dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    padding: 10px 15px; /* Espaçamento interno dos links */
+    display: block; /* Faz com que o link preencha o espaço do item da lista */
+}
+
+/* Adiciona um efeito de hover nos links */
+nav a:hover {
+    background-color: #666; /* Cor de fundo ao passar o mouse */
+}
+
+
         
     </style>
-</head>
-<body>
-    <img class = "button"
-    src=https://img2.gratispng.com/20180422/wee/ave0sygo7.webp>
-    <div class="button2">
-        Criar conta 
-    </div>
-    </div>
 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body> 
+    <img class = "logo"
+    src=https://cdn-icons-png.flaticon.com/512/3736/3736502.png>
+
+    <div href="Criar Conta">
+        
+            <ul><a href="button-create">Criar conta</a></ul>
+        
+       
+ </div>
+  
+    <div class="retangulo">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFnMnO-AxAQB9VpH775guIuHAsevbO387nHg&s" alt="">
+    </div>
+   
+<main>
+    
+    </div>
+    
+
+</main>
 </body>
+
 </html>
