@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+main{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            color: #333;
+            font-weight: bold; 
+}
+        .btper{
+            display:flex;
+            justify-content: left;
+            text-align: left;
+           font-weight: bold;
+            font-size: 15px;
+            
+        }
+
+        .Barra{
+    list-style-type: circle;
+        display: flex;
+         justify-content: center
+}
+        .retangulo  {
+            width: 25%; /* Largura do retângulo */
+            height: 25%; /* Altura do retângulo */
+            border: 5px solid #808080; /* Borda cinza */
+            border-radius: 10px; /* Cantos arredondados, opcional */
+            margin: 20px; /* Margem ao redor do retângulo */
+            display: flex;
+            justify-content: center; /* Alinha a imagem horizontalmente */
+            align-items: center; /* Alinha a imagem verticalmente */
+            background-color: hwb(160 38% 61% / 0.556); /* Cor de fundo opcional */
+            text-align: center;
+            transition: 0.5s ease;
+            opacity: 100%;
+            width: 20%;
+        border: 2px solid black;
+        border-radius: 5px black;
+        padding: 1px;
+        margin: 5%;
+        margin-left: 1%;
+        margin-right: 1%;
+            
+        }
+            .retangulo img {
+            max-width: 100%; /* Faz a imagem se ajustar ao tamanho do retângulo */
+            max-height: 100%; /* Faz a imagem se ajustar ao tamanho do retângulo */
+            border-radius: 8px; /* Bordas arredondadas para a imagem, opcional */
+            list-style-type: circle;
+        display:block;
+         justify-content:center; /* Centraliza os itens horizontalmente */
+         text-align: center;
+
+}
+.container{
+        display: flex;
+         justify-content: center; /* Centraliza os itens horizontalmente */
+         margin: 0;
+        padding: 0;
+        
+}
+.search-container{
+    display: flex;
+    justify-content:center ; /* Centraliza horizontalmente */
+    align-items: center;
+    height: 1px; /* Altura do contêiner */
+    width: 50%;
+    
+    
+}
+html, body {
+            height: 100%; /* Garantir que o body e html ocupem 100% da altura da viewport */
+            margin: 0;    /* Remover margens padrão */
+}   
+
+        body{
+            
+            width: 100%;   /* Ocupa toda a largura do contêiner pai */
+            height: 100%;  /* Ocupa toda a altura do contêiner pai */
+            background-color: #8534c4; /* Cor de fundo verde */
+        }
+        
+        .rodape {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .button{
+            text-align: left; background-color:#0000FF;
+            width: 3% ;
+            padding: 10px;
+            border-radius: 100px; 
+            margin: 1px
+            
+        }
+        .header{
+            width: 100%;
+           
+
+        }
+        .perfil{
+            background-color: #333; /* Cor de fundo da parte superior */
+    color: white; /* Cor do texto da parte superior */
+    padding: 1px 1px; /* Espaçamento interno da parte superior */
+        display: flex;
+
+        }
+        body, ul {
+    margin: 0;
+    padding: 0;
+        }
+        .logo{
+    color: white; /* Cor do texto do logo */
+    text-decoration: none; /* Remove o sublinhado do texto */
+    
+    font-weight: bold; /* Deixa o texto em negrito */
+    width: 3%;
+    
+}   
+/* Reset básico de margens e preenchimentos */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estiliza o cabeçalho */
+header {
+    
+    width: 100%;
+}
+
+/* Barra superior */
+
+/* Estiliza o logo */
+.logo a {
+    color: white; /* Cor do texto do logo */
+    text-decoration: none; /* Remove o sublinhado do texto */
+    font-size: 24px; /* Tamanho da fonte do logo */
+    font-weight: bold; /* Deixa o texto em negrito */
+    
+}
+
+/* Barra inferior */
+.bottom-bar {
+    background-color: #444; /* Cor de fundo da parte inferior */
+    padding: 10px 20px; /* Espaçamento interno da parte inferior */
+    
+}
+
+/* Remove marcadores da lista e define estilo dos links */
+nav ul {
+    list-style-type: circle;
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+nav a {
+    color: white; /* Cor do texto dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    padding: 10px 15px; /* Espaçamento interno dos links */
+    display: block; /* Faz com que o link preencha o espaço do item da lista */
+}
+
+/* Adiciona um efeito de hover nos links */
+nav a:hover {
+    background-color: #666; /* Cor de fundo ao passar o mouse */
+}
+
+
+
+    
+   
+    
+
+nav ul div a{
+    transition: all 0.5s ease;
+    opacity: 4px;
+}
+h1 div nav ul li {
+    transition: all 0.5s ease;
+    opacity: 4px;
+}
+div input {
+    display: flex;
+    flex-direction: column;
+}
+
+body{
+    margin: 0;                    /* Remove a margem padrão */
+            padding: 0;                   /* Remove o preenchimento padrão */
+            height: 100vh;                /* Define a altura do body para 100% da altura da viewport */
+            background-image: url('https://i.pinimg.com/564x/e8/01/61/e801616eee99cfdf84e2947420c10877.jpg'); /* URL da imagem de fundo */
+            background-repeat: no-repeat; /* Não repetir a imagem */
+            background-size: cover;       /* Ajustar a imagem para cobrir todo o espaço */
+            background-position: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            color: #333;
+            font-weight: bold; 
+}
+
+
+
+
+    </style>
+
+
+</head>
+
+<div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li> 
+                
+            </ul>
+        </nav>
+    </div>
+</h1>
+</header>
+<body> 
+    <main>
+    <h1>
+    
+   <div>
+    <img class = "logo"
+    src=https://cdn-icons-png.flaticon.com/512/3736/3736502.png>
+   </div>
+    <div class="btper">
+
+        <nav>
+           <ul> <a href="http://127.0.0.1:5500/frontend/p%C3%A1g02.html">Criar conta</a> </ul>
+        </nav>
+
+    </div>
+        
+       
+       
+        <div>
+                 <hr>
+        </div>
+ 
+        <div class="retangulo">
+
+                        <img src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+        </div>
+
+        <div class="retangulo">
+
+                        <img src="https://images.pexels.com/photos/581087/pexels-photo-581087.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+        </div>
+        
+    <main>
+    
+   
+     <header>
+
+        <nav><div class="container"></div>
+        <div class="search-container">
+        </div> 
+                <input type="text" id="search-input" placeholder="Pesquisar...">
+                        <button id="search-button">🔍</button>
+
+        </div>
+            </nav>
+    </header>
+        <nav>
+            <ul>
+                <div class="pag2">
+                    <h> <a href="http://127.0.0.1:5500/frontend/p%C3%A1g02.html">Segunda página</a></h1>
+                </ul>
+            </div>
+        </nav>
+
+        
+        
+    </main>
+
+
+</body>
+
+</html>
