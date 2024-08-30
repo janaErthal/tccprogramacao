@@ -6,29 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-            #h2-inuput{
-                display: flex;
-                justify-content: center;
-            }
-            h2{
-                display:flex;
-                justify-content: center;
-                border-color: #ffffff;
-                background-color: #544013;
-                border-radius: 20px;
-                width: 300px;
+
+            .vertical{
+                 border-left: 6px solid rgb(100, 65, 1); 
+                  height: 600px;
+                  left: 50%;
+                  position: absolute;
 
             }
+            
+        h2{
+            display:flex;
+            justify-content: center;
+            border-color: #ffffff;
+            background-color: #544013;
+            border-radius: 45px;
+            width: 300px;
+
+        }
+
+       .principal{
+        background-color: #ede9dd;
+        width:90% ;
+        margin: auto;
+        border-radius: 90px;
+         display: flex;
+         margin-top: 5%;
+       }
+
         .lado-esquerdo input{
             padding: 5px;
             border-color: #544013;
-            
+            justify-content:baseline;
             
         }
+
+        .lado-esquerdo, .lado-direito{
+            width: 50%;
+            padding: 5%;
+        }
+
         .lado-direito input{
              padding: 5px;
              border-color: #544013;
+             margin-left: ;
+        }
 
+        .lado-direito h2{
+            margin: auto;
         }
 
 
@@ -45,7 +70,7 @@
 
         body {
             font-family: promtp, sans-serif;
-            background-color: #868585;
+            background-color: #bebdbd;
             display: 0 block;
            text-align: center;
 
@@ -60,7 +85,14 @@
 
 
 </head>
-<body>
+
+
+
+<body style="text-align: center;">
+
+    
+    <div class="vertical"></div>
+
     <div class="principal">
         <div class="lado-esquerdo">
             <h1>criar conta</h1>
@@ -68,19 +100,19 @@
             <input>
             <p>email*</p>
             <input>
-            <p>telefone</p>
+            <p>telefone*</p>
             <input>
-            <p>cpf</p>
+            <p>cpf*</p>
             <input>
-
         </div>
         <div class="lado-direito">
-            <p>senha</p>
+            <p style="margin-top: 10%;">senha</p>
             <input>
             <p>confirmar senha</p>
-            <input>
+            <input> 
             <h2>criar conta</h2>
-
+            
+    
         </div>
     </div>
     
