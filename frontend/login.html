@@ -1,126 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <style>
 
-            .vertical{
-                 border-left: 6px solid rgb(100, 65, 1); 
-                  height: 600px;
-                  left: 50%;
-                  position: absolute;
-
-            }
-            
-        h2{
-            display:flex;
-            justify-content: center;
-            border-color: #ffffff;
-            background-color: #544013;
-            border-radius: 45px;
-            width: 300px;
-
+        input senha{
+            position: absolute;
+            left: 100px; /* Move o input para a direita */
+            top: 50px;   /* Move o input para baixo */
         }
+         body {
+    font-family:'The League of Moveable Type',;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #242323f6;
+    margin: 0;
+}
 
-       .principal{
-        background-color: #ede9dd;
-        width:90% ;
-        margin: auto;
-        border-radius: 90px;
-         display: flex;
-         margin-top: 5%;
-       }
+.login-container {
+    background: #e6e4e4;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
 
-        .lado-esquerdo input{
-            padding: 5px;
-            border-color: #544013;
-            justify-content:baseline;
-            
-        }
+h2 {
+    margin-bottom:1.5rem;
+    font-size: 2.5rem;
+}
 
-        .lado-esquerdo, .lado-direito{
-            width: 50%;
-            padding: 5%;
-        }
+label {
+    display:flex;
+    margin-bottom: 10rem;
+    font-size: 2.5rem;
+}
 
-        .lado-direito input{
-             padding: 5px;
-             border-color: #544013;
-             margin-left: ;
-        }
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+}
 
-        .lado-direito h2{
-            margin: auto;
-        }
+button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #0799fa;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0799fa;
+}
 
 
-        body div p{
-            display: flex ;
-             justify-content:space-around;
-        
-        }
-
-        h1{
-            display: flex;
-            justify-content:center;
-        }
-
-        body {
-            font-family: promtp, sans-serif;
-            background-color: #bebdbd;
-            display: 0 block;
-           text-align: center;
-
-        }
-
-        .login-content {
-            background-color: antiquewhite;
-        }
     </style>
 
-
-
-
-</head>
-
-
-
-<body style="text-align: center;">
-
-    
-    <div class="vertical"></div>
-
-    <div class="principal">
-        <div class="lado-esquerdo">
-            <h1>criar conta</h1>
-            <p>nome*</p>
-            <input>
-            <p>email*</p>
-            <input>
-            <p>telefone*</p>
-            <input>
-            <p>cpf*</p>
-            <input>
+    </head>
+    <body>
+        <div class="login-container">
+            <h2>entrar no moda jovem</h2>
+            <form id="loginForm">
+                <label for="nome do usuario ou gmail">nome do usuario ou gmail:</label>
+                <input type="text" id="nome do usuario ou gmail" name="nome do usuario ou gmail" required>
+                
+                <label for="senha">senha:</label>
+                <input type="senha" id="senha" name="senha" required>
+                
+                <button type="submit">entrar</button>
+                <p>não possui conta?</p> 
+                <p style="color: red;">criar conta</p>
+            </form>
+            <p id="error-message" style="color: red;"></p>
         </div>
-        <div class="lado-direito">
-            <p style="margin-top: 10%;">senha</p>
-            <input>
-            <p>confirmar senha</p>
-            <input> 
-            <h2>criar conta</h2>
-            
-    
-        </div>
-    </div>
-    
+        <script src="scripts.js"></script>
+
+
+    </body>
 
 
 
 
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </html>
