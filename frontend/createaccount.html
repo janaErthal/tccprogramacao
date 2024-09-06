@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Moda Jovem</title>
+    <title>Criar Conta - Moda Jovem</title>
     <style>
         body {
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,7 +15,7 @@
             margin: 0;
         }
 
-        .login-container {
+        .signup-container {
             background: #e9dede;
             padding: 2rem;
             border-radius: 10px;
@@ -81,20 +81,25 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Entrar no Moda Jovem</h2>
-        <form id="loginForm">
-            <label for="teste">Nome de usuário ou Gmail:</label>
-            <input type="text" id="teste" name="teste" required>
+    <div class="signup-container">
+        <h2>Criar Conta no Moda Jovem</h2>
+        <form id="signupForm">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username" required>
             
-            <label for="teste">Senha:</label>
-            <input type="teste" id="teste" name="teste" required>
+            <label for="email">Gmail:</label>
+            <input type="email" id="email" name="email" required>
             
-            <button type="submit">Entrar</button>
-            <p>Não possui conta? <a href="createaccount.html" class="button">Criar conta</a></p>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmPassword">Confirmar Senha:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            
+            <button type="submit">Criar Conta</button>
+            <p>Já tem uma conta? <a href="login.html">Entrar</a></p>
         </form>
-        <p id=" nome de usuário ou senha incorretos" style="color: red;"></p>
+        <p id="signupError" style="color: red;"></p>
     </div>
     <script src="scripts.js"></script>
 </body>
-</html>
