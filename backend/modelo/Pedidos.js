@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const { Types } = require('mysql2');
+
 
 class pedidos extends Model {}
 
@@ -23,7 +23,7 @@ pedidos.init({
         type: DataTypes.DECIMAL(5,2)
     },
     endereco: {
-        Types: DataTypes.STRING
+        type: DataTypes.STRING
 
     }
 }, {
@@ -32,4 +32,4 @@ pedidos.init({
     timestamps: false
 });
 
-module.exports = Cliente;
+module.exports = pedidos;

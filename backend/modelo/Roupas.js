@@ -10,7 +10,7 @@ roupas.init({
         autoIncrement: true
     },
     preco: {
-        type: DataTypes.DECIMAL(5,2)
+        type : DataTypes.DECIMAL(5,2)
     },
     descricao: {
         type: DataTypes.STRING
@@ -22,7 +22,7 @@ roupas.init({
         type : DataTypes.INTEGER
     },
     cores : {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     }
 }, {
     sequelize,
@@ -30,4 +30,4 @@ roupas.init({
     timestamps: false
 });
 
-module.exports = Cliente;
+module.exports = roupas;

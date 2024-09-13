@@ -17,6 +17,7 @@ router.put('/pedidos/:id', PedidoController.updatePedido);
 // Rota para deletar um pedido
 router.delete('/pedidos/:id', PedidoController.deletePedido);
 
+
 // Rota para registrar entrada de estoque
 //router.post('/pedidos/:id/entrada', PedidoController.registrarEntrada);
 

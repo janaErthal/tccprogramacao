@@ -16,9 +16,13 @@ app.use(cors())
 
 // Importar rotas
 const RotasCliente = require('./rotas/RotasCliente');
+const RotasPedidos = require('./rotas/RotasPedidos');
+const RotasRoupas = require('./rotas/RotasRoupas');
 
 // Usar rotas
 app.use('/api', RotasCliente);
+app.use('/api', RotasPedidos);
+app.use('/api', RotasRoupas);
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3000;
