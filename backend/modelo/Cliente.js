@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class Cliente extends Model {}
+class cliente extends Model {}
 
 cliente.init({
     idcliente: {
@@ -27,4 +27,4 @@ cliente.init({
     timestamps: false
 });
 
-module.exports = Cliente;
+module.exports = cliente;
