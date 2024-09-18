@@ -1,4 +1,4 @@
-const Roupa = require('../modelo/Roupas');
+const Roupa = require('../modelo/Roupa');
 //const EntradaEstoque = require('../models/EntradaEstoque');
 //const SaidaEstoque = require('../models/SaidaEstoque');
 
