@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ClienteController = require('../controlador/Controladorcliente');
+const ClienteController = require('../controlador/ControladorCliente');
 
 // Rota para criar um novo cliente
 router.post('/clientes', ClienteController.createCliente);
