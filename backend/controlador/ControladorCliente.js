@@ -11,6 +11,28 @@ const ClienteController = {
             res.status(500).send(error.message);
         }
     },
+    login: async (req, res) => {
+        try {
+            const clientedobanco = await Cliente.findOne({
+                where: {
+                    email: req.boby.email
+                }
+            })
+
+            if (!clientedobanco) {
+                return res.status(404).send('cliente não encontrado');
+            } else {
+                if (clientedobanco.senha == req.boby.senha) {
+                    return res.json(clientedobanco)
+                } else {
+                    return res.status(404).send('senha incorreta');
+                }
+            }
+
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
+},
 
     getAllClientes: async (req, res) => {
         try {
@@ -21,43 +43,43 @@ const ClienteController = {
         }
     },
 
-    getClienteById: async (req, res) => {
-        try {
-            const cliente = await Cliente.findByPk(req.params.id);
-            if (!cliente) {
-                return res.status(404).send('Cliente não encontrado');
+        getClienteById: async (req, res) => {
+            try {
+                const cliente = await Cliente.findByPk(req.params.id);
+                if (!cliente) {
+                    return res.status(404).send('Cliente não encontrado');
+                }
+                res.json(cliente);
+            } catch (error) {
+                res.status(500).send(error.message);
             }
-            res.json(cliente);
-        } catch (error) {
-            res.status(500).send(error.message);
-        }
-    },
+        },
 
-    updateCliente: async (req, res) => {
-        try {
-            const cliente = await Cliente.findByPk(req.params.id);
-            if (!cliente) {
-                return res.status(404).send('Cliente não encontrado');
-            }
-            await cliente.update(req.body);
-            res.send('Cliente atualizado com sucesso');
-        } catch (error) {
-            res.status(500).send(error.message);
-        }
-    },
+            updateCliente: async (req, res) => {
+                try {
+                    const cliente = await Cliente.findByPk(req.params.id);
+                    if (!cliente) {
+                        return res.status(404).send('Cliente não encontrado');
+                    }
+                    await cliente.update(req.body);
+                    res.send('Cliente atualizado com sucesso');
+                } catch (error) {
+                    res.status(500).send(error.message);
+                }
+            },
 
-    deleteCliente: async (req, res) => {
-        try {
-            const cliente = await Cliente.findByPk(req.params.id);
-            if (!cliente) {
-                return res.status(404).send('Cliente não encontrado');
-            }
-            await cliente.destroy();
-            res.send('Cliente deletado com sucesso');
-        } catch (error) {
-            res.status(500).send(error.message);
-        }
-    },
+                deleteCliente: async (req, res) => {
+                    try {
+                        const cliente = await Cliente.findByPk(req.params.id);
+                        if (!cliente) {
+                            return res.status(404).send('Cliente não encontrado');
+                        }
+                        await cliente.destroy();
+                        res.send('Cliente deletado com sucesso');
+                    } catch (error) {
+                        res.status(500).send(error.message);
+                    }
+                },
 
     // Implementação das funções de controle de estoque
     // registrarEntrada e registrarSaida

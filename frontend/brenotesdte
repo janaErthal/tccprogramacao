@@ -327,6 +327,7 @@
           document.getElementById('main-image').src = newImage;
         });
       });
+
     </script>
     
 </body>
