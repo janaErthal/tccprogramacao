@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class roupas extends Model {}
+class Roupas extends Model {}
 
 roupas.init({
     idroupas: {
