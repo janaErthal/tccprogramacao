@@ -3,7 +3,7 @@ const sequelize = require('../config/database');
 
 class Roupas extends Model {}
 
-roupas.init({
+Roupas.init({
     idroupas: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -30,4 +30,4 @@ roupas.init({
     timestamps: false
 });
 
-module.exports = roupas;
+module.exports = Roupas;

@@ -1,59 +1,59 @@
-const Roupa = require('../modelo/Roupa');
+const Roupas = require('../modelo/Roupas');
 //const EntradaEstoque = require('../models/EntradaEstoque');
 //const SaidaEstoque = require('../models/SaidaEstoque');
 
-const RoupaController = {
-    createRoupa: async (req, res) => {
+const roupasController = {
+    createroupas: async (req, res) => {
         try {
-            const novoRoupa = await Roupa.create(req.body);
-            res.json(novoRoupa);
+            const novoroupas = await Roupas.create(req.body);
+            res.json(novoroupas);
         } catch (error) {
             res.status(500).send(error.message);
         }
     },
 
-    getAllRoupas: async (req, res) => {
+    getAllroupas: async (req, res) => {
         try {
-            const roupas = await Roupa.findAll();
+            const roupas = await Roupas.findAll();
             res.json(roupas);
         } catch (error) {
             res.status(500).send(error.message);
         }
     },
 
-    getRoupaById: async (req, res) => {
+    getroupasById: async (req, res) => {
         try {
-            const roupa = await Roupa.findByPk(req.params.id);
-            if (!roupa) {
-                return res.status(404).send('Roupa não foi encontrado');
+            const roupas = await Roupas.findByPk(req.params.id);
+            if (!roupas) {
+                return res.status(404).send('roupas não foi encontrado');
             }
-            res.json(roupa);
+            res.json(roupas);
         } catch (error) {
             res.status(500).send(error.message);
         }
     },
 
-    updateRoupa: async (req, res) => {
+    updateroupas: async (req, res) => {
         try {
-            const roupa = await Roupa.findByPk(req.params.id);
-            if (!roupa) {
-                return res.status(404).send('Roupa não encontrado');
+            const roupas = await Roupas.findByPk(req.params.id);
+            if (!roupas) {
+                return res.status(404).send('roupas não encontrado');
             }
-            await roupa.update(req.body);
-            res.send('Roupa atualizado com sucesso');
+            await roupas.update(req.body);
+            res.send('roupas atualizado com sucesso');
         } catch (error) {
             res.status(500).send(error.message);
         }
     },
 
-    deleteRoupa: async (req, res) => {
+    deleteroupas: async (req, res) => {
         try {
-            const roupa = await Roupa.findByPk(req.params.id);
-            if (!roupa) {
-                return res.status(404).send('Roupa não encontrado');
+            const roupas = await Roupas.findByPk(req.params.id);
+            if (!roupas) {
+                return res.status(404).send('roupas não encontrado');
             }
-            await roupa.destroy();
-            res.send('Roupa deletado com sucesso');
+            await roupas.destroy();
+            res.send('roupas deletado com sucesso');
         } catch (error) {
             res.status(500).send(error.message);
         }
@@ -64,4 +64,4 @@ const RoupaController = {
     // ... (a ser implementado)
 };
 
-module.exports = RoupaController;
+module.exports = roupasController;

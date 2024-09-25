@@ -84,13 +84,13 @@
     <div class="login-container">
         <h2>Entrar na lojas premium</h2>
         <div id="loginForm">
-            <label for="teste">Nome de usuário ou Email:</label>
-            <input type="text" id="teste" name="teste" required>
+            <label for="teste">Nome de usuário:</label>
+            <input type="text" id="email" name="teste" required>
             
             <label for="teste">Senha:</label>
-            <input type="teste" id="teste" name="teste" required>
+            <input type="teste" id="senha" name="teste" required>
             
-            <button onclick="backend()">Entrar</button>
+            <button onclick="login()">Entrar</button>
             <p>Não possui conta? <a href="createaccount.html" class="button">Criar conta</a></p>
         </div>
         <p id=" nome de usuário ou senha incorretos" style="color: red;"></p>
@@ -99,19 +99,19 @@
         
         function login() {
             // Captura os valores dos inputs
-            const nome = document.getElementById('nome').value;
+            const nome = document.getElementById('email').value;
             const  senha = document.getElementById('senha').value;
 
             // Cria o objeto com os dados
             const pessoa = {
-                nome: nome,
-                email: email,
-                idade: parseInt(idade, 10) // Converte a idade para número
+                senha: senha,
+                email: "email",
+                
             };
 
             // Faz a solicitação POST para o backend
             fetch('http://localhost:3000/cliente', {
-                method: 'get',
+                method: 'Post',
                 headers: {
                     'Content-Type': 'application/json'
                 },
