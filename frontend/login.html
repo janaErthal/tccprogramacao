@@ -84,7 +84,7 @@
     <div class="login-container">
         <h2>Entrar na lojas premium</h2>
         <div id="loginForm">
-            <label for="teste">Nome de usuário:</label>
+            <label for="teste">Email:</label>
             <input type="text" id="email" name="teste" required>
             
             <label for="teste">Senha:</label>
@@ -99,19 +99,19 @@
         
         function login() {
             // Captura os valores dos inputs
-            const nome = document.getElementById('email').value;
-            const  senha = document.getElementById('senha').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
 
             // Cria o objeto com os dados
             const pessoa = {
                 senha: senha,
-                email: "email",
+                email: email,
                 
             };
 
             // Faz a solicitação POST para o backend
-            fetch('http://localhost:3000/cliente', {
-                method: 'Post',
+            fetch('http://localhost:3000/api/cliente/login', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -120,15 +120,13 @@
                 .then(response => {
                     if (response.ok) {
                         return response.json();
+                    } else {
+                        throw new Error('Erro ao cadastrar a pessoa');
                     }
-                    throw new Error('Erro ao cadastrar a pessoa');
                 })
                 .then(data => {
-                    console.log('Pessoa cadastrada com sucesso:', data);
                     // Limpar os campos de entrada após o envio
-                    document.getElementById('nome').value = '';
-                    
-                    document.getElementById('senha').value = '';
+                    window.location.href="Inicial.html"
                 })
                 .catch(error => {
                     console.error('Erro:', error);

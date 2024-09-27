@@ -15,14 +15,15 @@ const ClienteController = {
         try {
             const clientedobanco = await Cliente.findOne({
                 where: {
-                    email: req.boby.email
+                    email: req.body.email
                 }
             })
+            console.log(clientedobanco)
 
             if (!clientedobanco) {
                 return res.status(404).send('cliente não encontrado');
             } else {
-                if (clientedobanco.senha == req.boby.senha) {
+                if (clientedobanco.senha == req.body.senha) {
                     return res.json(clientedobanco)
                 } else {
                     return res.status(404).send('senha incorreta');

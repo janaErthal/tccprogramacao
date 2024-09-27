@@ -83,23 +83,71 @@
 <body>
     <div class="signup-container">
         <h2>Criar Conta no Moda Jovem</h2>
-        <form id="signupForm">
-            <label for="username">Nome de usuário:</label>
-            <input type="text" id="username" name="username" required>
+        <div id="signupForm">
+            <label for="nome">Nome de usuário:</label>
+            <input type="text" id="nome" name="nome" required>
             
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="senha">Senha:</label>
+            <input type="text" id="senha" name="senha" required>
             
             <label for="confirmPassword">Confirmar Senha:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <input type="text" id="confirmPassword" name="senha" required>
+
+            <label for="cep">CEP</label>
+            <input id="cep" name="cep" required>
             
-            <button type="submit">Criar Conta</button>
+            <button onclick="cadastro()">Criar Conta</button>
             <p>Já tem uma conta? <a href="login.html">Entrar</a></p>
-        </form>
+        </div>
         <p id="signupError" style="color: red;"></p>
     </div>
-    <script src="scripts.js"></script>
+
+    <script>
+        
+        
+        function cadastro() {
+            // Captura os valores dos inputs
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const confirmPassword = document.getElementById('senha').value;
+            const cep = document.getElementById('cep').value;
+
+            // Cria o objeto com os dados
+            const pessoa = {
+                senha: senha,
+                email: email,
+                cep: cep,
+                nome: nome                
+            };
+
+            // Faz a solicitação POST para o backend
+            fetch('http://localhost:3000/api/clientes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pessoa)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Erro ao cadastrar a pessoa');
+                    }
+                })
+                .then(data => {
+                    alert('Pessoa cadastrada com sucesso:', data);
+                    // Limpar os campos de entrada após o envio
+                    window.location.href="Inicial.html"
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+
+    </script>
 </body>

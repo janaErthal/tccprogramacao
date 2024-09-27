@@ -16,7 +16,7 @@ router.put('/clientes/:id', ClienteController.updateCliente);
 
 // Rota para deletar um cliente
 router.delete('/clientes/:id', ClienteController.deleteCliente);
-
+// Rota para logar um cliente
 router.post('/cliente/login',ClienteController.login);
 
 // Rota para registrar entrada de estoque

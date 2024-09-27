@@ -112,7 +112,7 @@
             }
         }
 
-        /* Seção de Produtos */
+        /* Seção de roupas */
         .section {
             padding: 60px 20px;
             background-color: #1a1a1a;
@@ -205,7 +205,7 @@
     </div>
     <div class="nav">
         <a href="#">Home</a>
-        <a href="brenofinalizado.html">Produtos</a>
+        <a href="brenofinalizado.html">roupas</a>
         <a href="#">Sobre Nós</a>
         <a href="#">Contato</a>
     </div>
@@ -236,5 +236,34 @@
     <div class="footer">
         <p>&copy; 2024 Loja de Roupas Premium. Todos os direitos reservados.</p>
     </div>
+
+    <script>
+      
+            listaroupas('DOMContentLoaded', () => {
+            fetch('http://localhost:3000/api/roupa')
+                .then(response => response.json())
+                .then(roupas => {
+                    const listaroupas = document.getElementById('lista-roupas');
+                    for(i=0; i<roupas.length; i++){
+                        const roupa = roupas[i]
+                        const cartaoroupa = document.createElement('roupa');
+                        cartaoroupa.className = 'cartao-roupa';
+                        
+                        cartaoroupa.innerHTML = `
+                            <img src="https://wx.mlcdn.com.br/ponzi/production/portaldalu/49646.jpg?ims=fit-in/960x" alt="${roupa.nome}"> 
+                            <h2>${roupa.nome}</h2>
+                            <p>${roupa.descricao}</p>
+                            <span>R$ ${roupa.preco}</span>
+                        `;
+                        
+                        listaroupas.appendChild(cartaoroupa);
+                    }})
+                .catch(error => {
+                    console.error('Erro ao buscar por roupas:', error);
+                });
+        }); 
+
+
+    </script>
 </body>
 </html>
