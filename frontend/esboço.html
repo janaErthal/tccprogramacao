@@ -360,5 +360,50 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        
+function cadastrarProduto() {
+            // Captura os valores dos inputs
+            const produto = document.getElementById('nome').value;
+            const valor = document.getElementById('email').value;
+            const estoque = document.getElementById('idade').value;
+}
+            // Cria o objeto com os dados
+            const pessoa = {
+                nome: nome,
+                email: email,
+                idade: parseInt(idade, 10) // Converte a idade para número
+            };
+
+            // Faz a solicitação POST para o backend
+            fetch('http://localhost:3000/produtos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pessoa)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Erro ao cadastrar a pessoa');
+                })
+                .then(data => {
+                    console.log('Pessoa cadastrada com sucesso:', data);
+                    // Limpar os campos de entrada após o envio
+                    document.getElementById('nome').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('idade').value = '';
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+
+
+
+    </script>
 </body>
 </html>

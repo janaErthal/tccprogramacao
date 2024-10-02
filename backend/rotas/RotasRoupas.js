@@ -6,16 +6,16 @@ const RoupaController = require('../controlador/ControladorRoupas');
 router.post('/roupa', RoupaController.createroupas);
 
 // Rota para obter todos os roupas
-router.get('/roupaAll', RoupaController.getAllroupas);
+router.get('/roupa', RoupaController.getAllroupas);
 
 // Rota para obter um roupa pelo ID
 router.get('/roupa/:id', RoupaController.getroupasById);
 
 // Rota para atualizar um roupa
-router.put('/roupa/upd', RoupaController.updateroupas);
+router.put('/roupa', RoupaController.updateroupas);
 
 // Rota para deletar um roupa
-router.delete('/roupa/del', RoupaController.deleteroupas);
+router.delete('/roupa', RoupaController.deleteroupas);
 
 
 

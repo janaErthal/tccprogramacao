@@ -21,7 +21,10 @@ Roupas.init({
     estoque: {
         type : DataTypes.INTEGER
     },
-    cores : {
+    cores: {
+        type: DataTypes.STRING
+    },
+    linkimg: {
         type: DataTypes.STRING
     }
 }, {
