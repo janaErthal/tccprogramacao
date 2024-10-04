@@ -3,97 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Moda Jovem</title>
+    <title>Login - loja premium</title>
     <style>
-        body {
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #2b2b2b;
-            margin: 0;
-        }
+        /* Responsividade */
+@media (max-width: 768px) {
+    .inicial a {
+        font-size: 0.9em;
+    }
+}
 
-        .login-container {
-            background: #e9dede;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
+/* Navegação */
+.inicial {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+    border-bottom: 1px solid hsl(0, 0%, 100%);
+    width: 100%; /* Garantindo que a navegação ocupe a largura total */
+}
 
-        h2 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #333;
-        }
+.inicial a {
+    color: #f5f5f5;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s;
+}
 
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            color: #555;
-        }
+.inicial a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
 
-        input {
-            width: calc(100% - 2rem);
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
+.inicial a:hover::after {
+    transform: scaleX(1);
+}
 
-        button {
-            width: calc(100% - 2rem);
-            padding: 0.75rem;
-            border: none;
-            border-radius: 4px;
-            background-color: #0799fa;
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column; /* Para empilhar os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    background-color: #2b2b2b;
+    margin: 0;
+}
 
-        button:hover {
-            background-color: #067bb5;
-        }
+.login-container {
+    background: #e9dede;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 40px; /* Aumente o espaço entre a navegação e o formulário */
+}
 
-        p {
-            margin: 1rem 0;
-            font-size: 0.875rem;
-            color: #666;
-        }
 
-        p a {
-            color: #1f1e1d;
-            text-decoration: none;
-        }
 
-        p a:hover {
-            text-decoration: underline;
-        }
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+input {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+button {
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #0799fa;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #067bb5;
+}
+
+p {
+    margin: 1rem 0;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+p a {
+    color: #1f1e1d;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
+    <div class="inicial">
+        <a href="Inicial.html">home</a>
+        <a href="brenofinalizado.html">roupas</a>
+        <a href="">sobre nós</a>
+        <a href="">contatos</a>
+    </div>
+    
     <div class="login-container">
-        <h2>Entrar na lojas premium</h2>
+        <h2>Entrar na loja premium</h2>
         <div id="loginForm">
-            <label for="teste">Email:</label>
+            <label for="email">Email:</label>
             <input type="text" id="email" name="teste" required>
             
-            <label for="teste">Senha:</label>
+            <label for="senha">Senha:</label>
             <input type="teste" id="senha" name="teste" required>
             
             <button onclick="login()">Entrar</button>
             <p>Não possui conta? <a href="createaccount.html" class="button">Criar conta</a></p>
         </div>
-        <p id=" nome de usuário ou senha incorretos" style="color: red;"></p>
+        <p id="nome de usuario ou senha incorreta" style="color: red;"></p>
     </div>
     <script> 
         
