@@ -295,6 +295,28 @@
                 console.error('Erro ao buscar por roupas:', error);
             });
 
+            fetch('http://localhost:3000/api/roupa')
+            .then(response => response.json())
+            .then(roupas => {
+                const listaroupas = document.getElementById('lista-roupas');
+                for (i = 0; i < roupas.length; i++) {
+                    const roupa = roupas[i]
+                    const cartaoroupa = document.createElement('roupa');
+                    cartaoroupa.className = 'product';
+
+                    cartaoroupa.innerHTML = `
+                            <img src="${roupa.linkimg}" alt="${roupa.nome}"> 
+                            <h2>${roupa.nome}</h2>
+                            <p>${roupa.descricao}</p>
+                            <span>R$ ${roupa.preco}</span>
+                        `;
+
+                    listaroupas.appendChild(cartaoroupa);
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar por roupas:', error);
+            });
 
     </script>
 </body>
