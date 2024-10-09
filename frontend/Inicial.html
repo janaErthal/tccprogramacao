@@ -23,6 +23,8 @@
             background-color: #1a1a1a;
         }
 
+        
+        
         /* Cabeçalho */
         .header {
             background-color: #000;
@@ -75,7 +77,7 @@
 
         /* Hero Section */
         .hero {
-            background: url('fundo-de-roupas.jpg') no-repeat center center;
+            background: url('fundo.jpg') no-repeat center center;
             background-size: cover;
             height: 600px;
             display: flex;
@@ -245,80 +247,39 @@
     <div class="section">
         <h2>Novidades</h2>
         <div class="product-grid" id="lista-roupas">
-            <div class="product">
-                <img src="calca-jeans-masculina-infantil-73-05-0142-gangster-jeans-claro-63ade1e7a5df2.jpg"
-                    alt="Camisa Elegante">
-                <h3>Calça Jeans</h3>
-                <p>R$ 129,90</p>
-            </div>
-            <div class="product">
-                <img src="https://images.tcdn.com.br/img/img_prod/698738/copia_jaqueta_masculina_puffer_nylon_preta_747_1_378b31a1d36e3a94d141494c066d7f39.jpg"
-                    alt="Calça Slim">
-                <h3>Jaqueta</h3>
-                <p>R$ 159,90</p>
-            </div>
-            <div class="product">
-                <img src="https://dohler.vtexassets.com/arquivos/ids/157659/19737-02457-6357-Roupao-Adulto-Dohler-Confort-Azul-Escuro-G-1.jpg?v=638091326603570000"
-                    alt="Vestido Chic">
-                <h3>Ropão</h3>
-                <p>R$ 199,90</p>
-            </div>
+            
         </div>
     </div>
     <div class="footer">
         <p>&copy; 2024 Loja de Roupas Premium. Todos os direitos reservados.</p>
     </div>
-
+        
     <script>
-
-
         fetch('http://localhost:3000/api/roupa')
             .then(response => response.json())
             .then(roupas => {
                 const listaroupas = document.getElementById('lista-roupas');
-                for (i = 0; i < roupas.length; i++) {
-                    const roupa = roupas[i]
-                    const cartaoroupa = document.createElement('roupa');
+                for (let i = 0; i < roupas.length; i++) {
+                    const roupa = roupas[i];
+                    const cartaoroupa = document.createElement('div');
                     cartaoroupa.className = 'product';
-
+                    
                     cartaoroupa.innerHTML = `
-                            <img src="${roupa.linkimg}" alt="${roupa.nome}"> 
-                            <h2>${roupa.nome}</h2>
-                            <p>${roupa.descricao}</p>
-                            <span>R$ ${roupa.preco}</span>
-                        `;
-
+                        <img src="${roupa.linkimg}" alt="${roupa.nome}"> 
+                        <h2>${roupa.nome}</h2>
+                        <p>${roupa.descricao}</p>
+                        <span>R$ ${roupa.preco}</span>
+                        <button onclick="window.location.href='/roupa/${roupa.idroupas}'">Comprar</button>
+                    `;
+    
                     listaroupas.appendChild(cartaoroupa);
                 }
             })
             .catch(error => {
                 console.error('Erro ao buscar por roupas:', error);
             });
-
-            fetch('http://localhost:3000/api/roupa')
-            .then(response => response.json())
-            .then(roupas => {
-                const listaroupas = document.getElementById('lista-roupas');
-                for (i = 0; i < roupas.length; i++) {
-                    const roupa = roupas[i]
-                    const cartaoroupa = document.createElement('roupa');
-                    cartaoroupa.className = 'product';
-
-                    cartaoroupa.innerHTML = `
-                            <img src="${roupa.linkimg}" alt="${roupa.nome}"> 
-                            <h2>${roupa.nome}</h2>
-                            <p>${roupa.descricao}</p>
-                            <span>R$ ${roupa.preco}</span>
-                        `;
-
-                    listaroupas.appendChild(cartaoroupa);
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao buscar por roupas:', error);
-            });
-
     </script>
+    
 </body>
 
 </html>
