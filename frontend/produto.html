@@ -14,7 +14,8 @@
         <h2 id="nome-produto"></h2>
         <p id="descricao-produto"></p>
         <div id="preco-produto"></div>
-        <button id="comprar-btn">Comprar Agora</button>
+        <button onclick="alert('Item concedido!')">Comprar</button>
+
     </div>
 
     <script>
@@ -29,6 +30,7 @@
                 document.getElementById('nome-produto').innerText = produto.nome;
                 document.getElementById('descricao-produto').innerText = produto.descricao;
                 document.getElementById('preco-produto').innerText = `R$ ${produto.preco}`;
+
             } catch (error) {
                 console.error('Erro ao buscar detalhes do produto:', error);
             }

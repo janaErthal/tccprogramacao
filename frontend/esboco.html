@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto Incrível</title>
+    <style>
+        body,
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #f5f5f5;
+            background-color: #1a1a1a;
+        }
+
+        /* Navegação */
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+            border-bottom: 1px solid hsl(0, 0%, 100%);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            /* Garante que a navegação fique acima dos outros elementos */
+        }
+
+        .nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 3px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Cabeçalho */
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 5px solid #ffffff;
+            margin-top: 60px;
+            /* Adiciona margem para evitar sobreposição pela navegação fixa */
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        /* Container e Layout do Produto */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .product {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            /* Espaço entre os produtos */
+        }
+
+        .product img {
+            max-width: 500px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.5s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .product-details {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 25px;
+            color: #fff;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .product-details h2 {
+            margin-bottom: 10px;
+            font-size: 2em;
+            color: #f5f5f5;
+        }
+
+        .product-details p {
+            font-size: 1.2em;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .product-details .price {
+            font-size: 1.5em;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .product-details .buy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background: #27ae60;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .product-details .buy-button:hover {
+            background: #2ecc71;
+        }
+
+        .product-details .discount {
+            font-size: 1.2em;
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+
+        .product-details .shipping {
+            font-size: 1em;
+            color: #48ff00;
+            margin-bottom: 20px;
+        }
+
+        .product-details .rating {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            color: #ffee00;
+        }
+
+        .product-details .rating img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .rating span {
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        /* Imagens de Cores */
+        .color-variations {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-variations a {
+            display: block;
+        }
+
+        .color-variations img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .color-variations img:hover {
+            border-color: #27ae60;
+        }
+
+        /* Avaliações */
+        .reviews {
+            margin-top: 40px;
+        }
+
+        .review {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .review .reviewer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review .reviewer img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .review .reviewer .name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .review .reviewer .date {
+            font-size: 0.9em;
+            color: #bbb;
+        }
+
+        .review .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review .rating svg {
+            width: 20px;
+            height: 20px;
+            color: #ffee00;
+        }
+
+        .review .rating span {
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        .review p {
+            font-size: 1em;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <a href="Inicial.html">Home</a>
+        <a href="brenofinalizado.html">Produtos</a>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Contato</a>
+    </div>
+
+    <div class="header">
+        <h1>Loja de Roupas Premium</h1>
+    </div>
+
+    <div class="container">
+        <!-- Primeiro Produto -->
+        <div class="product" id="product">
+            <!-- <img id="main-image" src="" alt="$fetch">
+            <div class="product-details">
+                <h2>${roupa.linkimg}</h2>
+                <p>Camiseta Azul em vários estilos e cores. Modelagem padrão Gola careca canelada</p>
+                <div class="price">R$90,00</div>
+                <div class="discount">ou até em 3x de R$30,00 sem juros</div>
+                <div class="shipping">Frete grátis com o cupom</div>
+                <a href="produto" class="buy-button">Comprar Agora</a>
+
+                Avaliação
+                <div class="rating">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-half" viewBox="0 0 16 16">
+                        <path
+                            d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z" />
+                    </svg>
+                    <span>(4.5/5)</span>
+                </div>
+
+                <div class="color-variations">
+                    <a href="#"
+                        data-image="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/425cb89884a2459baa5fafc700a6a797_9366/Camiseta_Adicolor_Borgonha_IJ9704_02_laydown_hover.jpg">
+                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/425cb89884a2459baa5fafc700a6a797_9366/Camiseta_Adicolor_Borgonha_IJ9704_02_laydown_hover.jpg"
+                            alt="Cor do artigo: Borgonha">
+                    </a>
+                    <a href="#"
+                        data-image="https://assets.adidas.com/images/w_1200,f_auto,q_auto,fl_lossy,c_fill,g_auto/0b92f0f51c404b43863d11f41e8ae8c8_9366/Camiseta_Adicolor_Roxo_IP3022_01_laydown.jpg">
+                        <img src="https://assets.adidas.com/images/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/0b92f0f51c404b43863d11f41e8ae8c8_9366/Camiseta_Adicolor_Roxo_IP3022_01_laydown.jpg"
+                            alt="Cor do artigo: Bliss Lilac / Semi Pulse Lilac">
+                    </a>
+                    <a href="#"
+                        data-image="https://assets.adidas.com/images/w_1200,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9ee5f1b4be94e4181235e4e97e8a02f_9366/Camiseta_Adicolor_Azul_IP3024_01_laydown.jpg">
+                        <img src="https://assets.adidas.com/images/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9ee5f1b4be94e4181235e4e97e8a02f_9366/Camiseta_Adicolor_Azul_IP3024_01_laydown.jpg"
+                            alt="Cor do artigo: Clear Sky">
+                    </a>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- Avaliações -->
+        <div class="reviews">
+            <div class="review">
+                <div class="reviewer">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Perfil do Usuário">
+                    <div>
+                        <div class="">Carlos Silva</div>
+                        <div class="date">12 de Setembro de 2024</div>
+                    </div>
+                </div>
+                <div class="rating">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-half" viewBox="0 0 16 16">
+                        <path
+                            d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z" />
+                    </svg>
+                    <span>(4.0/5)</span>
+                </div>
+                <p>Ótima camiseta! O tecido é muito confortável e a cor é vibrante. O único ponto negativo é que o
+                    tamanho M ficou um pouco justo para mim, então talvez seja melhor optar por um tamanho maior se você
+                    gosta de roupas mais folgadas.</p>
+            </div>
+
+            <div class="review">
+                <div class="reviewer">
+                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Perfil do Usuário">
+                    <div>
+                        <div class="name">Mariana Costa</div>
+                        <div class="date">10 de Setembro de 2024</div>
+                    </div>
+                </div>
+                <div class="rating">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg>
+                    <span>(4.0/5)</span>
+                </div>
+                <p>A camiseta é muito bonita e a entrega foi rápida. No entanto, o tecido não é tão macio quanto eu
+                    esperava. De qualquer forma, ainda vale a pena pela qualidade geral e pelo preço.</p>
+            </div>
+
+            <div class="review">
+                <div class="reviewer">
+                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Perfil do Usuário">
+                    <div>
+                        <div class="name">Ricardo Lima</div>
+                        <div class="date">8 de Setembro de 2024</div>
+                    </div>
+                </div>
+                <div class="rating">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg>
+                    <span>(4.0/5)</span>
+                </div>
+                <p>O produto é bom, mas a qualidade não é excepcional. Achei que o tecido poderia ser mais resistente.
+                    No geral, é um bom custo-benefício.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const id = new window.URLSearchParams(window.location.search).get('id')
+        fetch('http://localhost:3000/api/roupa/' + id)
+            .then(resposta => resposta.json())
+            .then(roupa => {
+                const cartaoRoupa = document.getElementById('product');
+                cartaoRoupa.className = 'product';
+
+                cartaoRoupa.innerHTML = `
+                    <img id="main-image" src="${roupa.linkimg}" alt="$fetch">
+                        <div class="product-details">
+                            <h2>${roupa.nome}</h2>
+                            <p>${roupa.descricao}</p>
+                            <div class="price">${roupa.preco}</div>
+                            <div class="discount">ou até em 3x de R$30,00 sem juros</div>
+                            <div class="shipping">Frete grátis com o cupom</div>
+                            <button onclick="alert('Item concedido!')">Comprar</button>
+
+                            <!-- Avaliação -->
+                            <div class="rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z" />
+                                </svg>
+                                <span>(4.5/5)</span>
+                            </div>
+
+                            <!-- Imagens menores para seleção de cores -->
+                            <div class="color-variations">
+                                <a href="#"
+                                    data-image="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/425cb89884a2459baa5fafc700a6a797_9366/Camiseta_Adicolor_Borgonha_IJ9704_02_laydown_hover.jpg">
+                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/425cb89884a2459baa5fafc700a6a797_9366/Camiseta_Adicolor_Borgonha_IJ9704_02_laydown_hover.jpg"
+                                        alt="Cor do artigo: Borgonha">
+                                </a>
+                                <a href="#"
+                                    data-image="https://assets.adidas.com/images/w_1200,f_auto,q_auto,fl_lossy,c_fill,g_auto/0b92f0f51c404b43863d11f41e8ae8c8_9366/Camiseta_Adicolor_Roxo_IP3022_01_laydown.jpg">
+                                    <img src="https://assets.adidas.com/images/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/0b92f0f51c404b43863d11f41e8ae8c8_9366/Camiseta_Adicolor_Roxo_IP3022_01_laydown.jpg"
+                                        alt="Cor do artigo: Bliss Lilac / Semi Pulse Lilac">
+                                </a>
+                                <a href="#"
+                                    data-image="https://assets.adidas.com/images/w_1200,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9ee5f1b4be94e4181235e4e97e8a02f_9366/Camiseta_Adicolor_Azul_IP3024_01_laydown.jpg">
+                                    <img src="https://assets.adidas.com/images/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9ee5f1b4be94e4181235e4e97e8a02f_9366/Camiseta_Adicolor_Azul_IP3024_01_laydown.jpg"
+                                        alt="Cor do artigo: Clear Sky">
+                                </a>
+                            </div>
+                        </div>
+                `
+
+
+
+                listaroupas.appendChild(cartaoRoupa);
+            })
+            .catch(error => {
+                console.error('Erro ao buscar produtos:', error);
+            });
+            
+    </script>
+</body>
+
+</html>
