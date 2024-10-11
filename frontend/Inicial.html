@@ -75,7 +75,7 @@
 
         /* Hero Section */
         .hero {
-            background: url('fundo-de-roupas.jpg') no-repeat center center;
+            background: url('fundo.jpg') no-repeat center center;
             background-size: cover;
             height: 600px;
             display: flex;
@@ -189,6 +189,27 @@
             opacity: 0.8;
         }
 
+        /* Botão Criar Conta */
+        .create-account {
+            background-color: #757575; /* Verde */
+            color: white;
+            padding: 5px 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2em;
+            margin: 0px auto;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .create-account:hover {
+            background-color: #f1f1f1; /* Verde mais escuro */
+            color: rgb(0, 0, 0);
+        }
+
         /* Rodapé */
         .footer {
             background-color: #000;
@@ -229,12 +250,13 @@
 </head>
 
 <body>
+    
     <div class="header">
         <h1>Loja de Roupas Premium</h1>
-    </div>
+    </div><button class="create-account" onclick="window.location.href='createaccount.html'">Criar Conta</button>
     <div class="nav">
         <a href="#">Home</a>
-        <a href="brenofinalizado.html">roupas</a>
+        <a href="brenofinalizado.html">Roupas</a>
         <a href="#">Sobre Nós</a>
         <a href="#">Contato</a>
     </div>
@@ -245,48 +267,34 @@
     <div class="section">
         <h2>Novidades</h2>
         <div class="product-grid" id="lista-roupas">
-            <div class="product">
-                <img src="calca-jeans-masculina-infantil-73-05-0142-gangster-jeans-claro-63ade1e7a5df2.jpg"
-                    alt="Camisa Elegante">
-                <h3>Calça Jeans</h3>
-                <p>R$ 129,90</p>
-            </div>
-            <div class="product">
-                <img src="https://images.tcdn.com.br/img/img_prod/698738/copia_jaqueta_masculina_puffer_nylon_preta_747_1_378b31a1d36e3a94d141494c066d7f39.jpg"
-                    alt="Calça Slim">
-                <h3>Jaqueta</h3>
-                <p>R$ 159,90</p>
-            </div>
-            <div class="product">
-                <img src="https://dohler.vtexassets.com/arquivos/ids/157659/19737-02457-6357-Roupao-Adulto-Dohler-Confort-Azul-Escuro-G-1.jpg?v=638091326603570000"
-                    alt="Vestido Chic">
-                <h3>Ropão</h3>
-                <p>R$ 199,90</p>
-            </div>
+            <!-- Produtos serão carregados aqui -->
         </div>
+    </div>
+    <div class="section">
+        
+        
     </div>
     <div class="footer">
         <p>&copy; 2024 Loja de Roupas Premium. Todos os direitos reservados.</p>
     </div>
 
     <script>
-
-
         fetch('http://localhost:3000/api/roupa')
             .then(response => response.json())
             .then(roupas => {
                 const listaroupas = document.getElementById('lista-roupas');
-                for (i = 0; i < roupas.length; i++) {
-                    const roupa = roupas[i]
-                    const cartaoroupa = document.createElement('roupa');
+                for (let i = 0; i < roupas.length; i++) {
+                    const roupa = roupas[i];
+                    const cartaoroupa = document.createElement('div');
                     cartaoroupa.className = 'product';
 
                     cartaoroupa.innerHTML = `
-                            <img src="${roupa.linkimg}" alt="${roupa.nome}"> 
-                            <h2>${roupa.nome}</h2>
-                            <p>${roupa.descricao}</p>
-                            <span>R$ ${roupa.preco}</span>
-                        `;
+                        <img src="${roupa.linkimg}" alt="${roupa.nome}"> 
+                        <h3>${roupa.nome}</h3>
+                        <p>${roupa.descricao}</p>
+                        <span>R$ ${roupa.preco}</span>
+                        <button onclick="window.location.href='esboco.html?id=${roupa.idroupas}'">Comprar</button>
+                    `;
 
                     listaroupas.appendChild(cartaoroupa);
                 }
@@ -294,9 +302,8 @@
             .catch(error => {
                 console.error('Erro ao buscar por roupas:', error);
             });
-
-
     </script>
+
 </body>
 
 </html>
